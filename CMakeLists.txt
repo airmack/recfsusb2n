@@ -29,9 +29,11 @@ PROJECT(recfsusb2n)
 OPTION(VERBOSE "Verbose cmake output" OFF)
 
 # Libraries
+find_package( Boost COMPONENTS thread system filesystem REQUIRED )
+include_directories( ${Boost_INCLUDE_DIRS} )
+
 INCLUDE(cmake-helpers)
 INCLUDE(cmake-libs-general)
-INCLUDE(cmake-libs-boost)
 
 # Subdirs
 ADD_SUBDIRECTORY(src)
